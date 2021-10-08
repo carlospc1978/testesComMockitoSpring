@@ -2,6 +2,7 @@ package models;
 
 public class ModeloEmail {
 
+    //novo modelo
     boolean email;
     String assuntoEmail;
 
