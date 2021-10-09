@@ -1,5 +1,6 @@
 package trainne.domain.order;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +23,18 @@ class OrderServiceTest {
     @MockBean
     private PaymentService paymentService;
 
-    @Autowired
+    @Autowired(required = false)
     OrderService orderService;
 
     @Test
+    @DisplayName("algum tipo de detalhe para ajudar a monitorar a classe de teste")
     void deveLancarExcecaoQuandoOUsuarioForMenorDeIdade() {
 
-//        PaymentService paymentService = new PaymentService();
-//        UserService userService = new UserService();
-//        OrderService orderService = new OrderService(userService,paymentService);
+        PaymentService paymentService = new PaymentService();
+        UserService userService = new UserService();
+        OrderService orderService = new OrderService(userService,paymentService);
 
-        Order order = Mockito.mock(Order.class);
-        Mockito.when(order).thenReturn(order);
+        Order order = new Order(17);
 
         IllegalStateException excep = assertThrows(IllegalStateException.class, () -> orderService.create(order));
 
