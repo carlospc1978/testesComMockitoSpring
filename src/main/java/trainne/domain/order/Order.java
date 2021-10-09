@@ -4,6 +4,10 @@ public class Order {
 
     int userid;
 
+    public Order(int userid) {
+        this.userid = userid;
+    }
+
     public int getUserid() {
         return userid;
     }
